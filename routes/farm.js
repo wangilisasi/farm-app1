@@ -50,7 +50,7 @@ router.delete("/:id", async(req,res)=>{
         //Delete image from cloudinary
         await cloudinary.uploader.destroy(farm.cloudinary_id); //destroy takes the cloudinary public ID
         //Delete user from DB
-        await farm.remove()
+        await farm.deleteOne()
         res.json(farm);
     }catch (err){
         console.log(err);
